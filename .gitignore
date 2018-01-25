@@ -1,4 +1,6 @@
-# Ignore system files
+# Ignore OS files #
+# =============== #
+
 .DS_Store
 .DS_Store?
 ._*
@@ -8,5 +10,21 @@ ehthumbs.db
 *[Tt]humbs.db
 *.Trashes
 
-# Ignore npm packages
+# Ignore packages #
+# =============== #
+
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Ignore packages #
+# =============== #
+
 node_modules/
+# Ignore API Keys
+# apikeys
