@@ -208,9 +208,12 @@ header {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end; }
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
   .article:nth-child(3n+3) {
     background-color: palegreen; }
   .article:nth-child(3n+2) {
@@ -225,7 +228,10 @@ header {
       width: 25%; } }
 
 .headline {
-  background: rgba(0, 0, 0, 0.4); }
+  background: rgba(0, 0, 0, 0.4);
+  display: block;
+  width: 100%;
+  text-align: center; }
 
 footer {
   height: 15vh;
