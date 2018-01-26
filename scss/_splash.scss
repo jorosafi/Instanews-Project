@@ -1,22 +1,12 @@
-header{
-  min-height: 200px;
-  display: flex;
+.splash{
+  height: 85vh;
+  display: none;//set display flex when you are done setting the header styles
   flex-direction: column;
   justify-content: center;
   align-content: center;
   align-items: center;
-  img{
-    height: 150px;
-    width: auto;
-    padding: 20px;
-  }
   @include tablet{
     flex-direction: row;
-    justify-content: flex-start;
-    min-height: 100px;
-    img{
-      height: 100px;
-    }
   }
   @include desktop{
     justify-content: flex-start;
@@ -30,9 +20,8 @@ header{
   .topics-dropdown{
     background: white;
   }
-  
 }
 
-.header-text{
-  @extend .splash-text
+.splash-text{
+  padding: 10px 0;//watch out changes here. this extends to .header-text in the header section
 }

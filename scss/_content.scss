@@ -1,0 +1,38 @@
+.content{
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
+  @include tablet{
+    flex-direction: row;
+  }
+}
+
+.article{
+  width: 100%;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  &:nth-child(3n+3){
+    background-color: palegreen;
+  }
+  &:nth-child(3n+2){
+    background-color: paleturquoise;
+  }
+  &:nth-child(3n+1){
+    background-color: lightcoral;
+  }
+  @include tablet{
+    width: 50%;
+  }
+  @include desktop{
+    width: 25%;
+  }
+}
+
+.headline{
+  background: rgba(0, 0, 0, 0.4);
+}

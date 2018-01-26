@@ -1,0 +1,12 @@
+footer{
+  height: 15vh;
+  text-align: center;
+  padding: 20px;
+  @include desktop{
+    text-align: left;
+  }
+}
+
+.copyright{
+  color: $grey;
+}
