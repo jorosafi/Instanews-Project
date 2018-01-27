@@ -17,15 +17,16 @@
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  &:nth-child(3n+3){
-    background-color: palegreen;
-  }
-  &:nth-child(3n+2){
-    background-color: paleturquoise;
-  }
-  &:nth-child(3n+1){
-    background-color: lightcoral;
-  }
+  background-size:contain;
+  // &:nth-child(3n+3){
+  //   background-color: palegreen;
+  // }
+  // &:nth-child(3n+2){
+  //   background-color: paleturquoise;
+  // }
+  // &:nth-child(3n+1){
+  //   background-color: lightcoral;
+  // }
   @include tablet{
     width: 50%;
   }

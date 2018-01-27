@@ -213,13 +213,8 @@ header {
           justify-content: flex-end;
   -webkit-box-align: center;
       -ms-flex-align: center;
-          align-items: center; }
-  .article:nth-child(3n+3) {
-    background-color: palegreen; }
-  .article:nth-child(3n+2) {
-    background-color: paleturquoise; }
-  .article:nth-child(3n+1) {
-    background-color: lightcoral; }
+          align-items: center;
+  background-size: contain; }
   @media (min-width: 600px) {
     .article {
       width: 50%; } }
