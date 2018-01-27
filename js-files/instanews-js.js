@@ -24,20 +24,26 @@ $(".topics-dropdown").change(function () {
   $.ajax({
     url: url,
     method: 'GET',
-  }).done(function (result) {
+  })
+  
+  .done(function (result) {
 
     console.log(result.results);
 
-    $.each(result, function(key, value){
+    // var filteredResults = result.results.filter()
+    var slicedResults = result.results.slice(0, 12);
 
-      var articleIndex = 0;
-      articleIndex ++
+    console.log(slicedResults);
 
-      $('.headline').append(result.results[articleIndex].title)
-        .next('.headline');
+    $.each(slicedResults, function(key, value){
+
+
+      $('.headline:eq('+key+')').append(slicedResults[key].title);
     })
 
-  }).fail(function (err) {
+  })
+  
+  .fail(function (err) {
     throw err;
   });
 });
