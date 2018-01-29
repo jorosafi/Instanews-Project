@@ -17,6 +17,8 @@
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
+  text-decoration: none;
+  color: white;
   background-size:contain;
   // &:nth-child(3n+3){
   //   background-color: palegreen;
@@ -36,8 +38,11 @@
 }
 
 .headline{
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.6);
   display: block;
   width: 100%;
   text-align: center;
+  padding: 10px;
+  text-align: left;
+  line-height: 1.5rem;
 }
