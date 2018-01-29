@@ -1,5 +1,5 @@
 .content{
-  display: flex;
+  display: none;
   justify-content: space-around;
   flex-direction: column;
   flex-wrap: wrap;
@@ -20,15 +20,6 @@
   text-decoration: none;
   color: white;
   background-size:contain;
-  // &:nth-child(3n+3){
-  //   background-color: palegreen;
-  // }
-  // &:nth-child(3n+2){
-  //   background-color: paleturquoise;
-  // }
-  // &:nth-child(3n+1){
-  //   background-color: lightcoral;
-  // }
   @include tablet{
     width: 50%;
   }

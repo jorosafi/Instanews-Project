@@ -93,7 +93,9 @@ h1 {
 
 .splash {
   height: 85vh;
-  display: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -128,7 +130,7 @@ h1 {
 .splash-text, .header-text {
   padding: 10px 0; }
 
-header {
+.header {
   min-height: 200px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -145,12 +147,12 @@ header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center; }
-  header img {
+  .header img {
     height: 150px;
     width: auto;
     padding: 20px; }
   @media (min-width: 600px) {
-    header {
+    .header {
       -webkit-box-orient: horizontal;
       -webkit-box-direction: normal;
           -ms-flex-direction: row;
@@ -159,10 +161,10 @@ header {
           -ms-flex-pack: start;
               justify-content: flex-start;
       min-height: 100px; }
-      header img {
+      .header img {
         height: 100px; } }
   @media (min-width: 1000px) {
-    header {
+    .header {
       -webkit-box-pack: start;
           -ms-flex-pack: start;
               justify-content: flex-start; } }
@@ -175,9 +177,7 @@ header {
     background: white; }
 
 .content {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   -ms-flex-pack: distribute;
       justify-content: space-around;
   -webkit-box-orient: vertical;

@@ -1,4 +1,32 @@
-header{
+.splash{
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  @include tablet{
+    flex-direction: row;
+  }
+  @include desktop{
+    justify-content: flex-start;
+  }
+}
+
+.topics-form{
+  width: 200px;
+  padding: 20px 0;
+  text-align: center;
+  .topics-dropdown{
+    background: white;
+  }
+}
+
+.splash-text{
+  padding: 10px 0;
+}
+
+.header{
   min-height: 200px;
   display: flex;
   flex-direction: column;

@@ -8,10 +8,9 @@
 //       .show(500, showNext);
 //   });
 
-
-
-
 $('.topics-dropdown').change(function () {
+  $('.splash').attr('class', 'container header');
+  $('.content').css('display','flex');
 
   var selection = $('.topics-dropdown').val();
 
@@ -28,35 +27,35 @@ $('.topics-dropdown').change(function () {
   
   .done(function (result) {
 
-    $('.headline').empty();
+    $('.content').empty();
+    $('.article').css('background', 'black');
 
-    // console.log(result.results);
+    var filteredResults = result.results.filter(function(article){
+      return article.multimedia.length
+      })
 
-    // var filteredResults = result.results.filter(function(key){
-    //   if (result.results[key].multimedia.length > 0){
-    //     return result.results[key];
-    //   }
-    //   })
-
-    var slicedResults = result.results.slice(0, 12);
-    // var slicedResults = filteredResults.slice(0, 12);
-
-    console.log(slicedResults);
+    var slicedResults = filteredResults.slice(0, 12);
     
 
     $.each(slicedResults, function(key, value){
       var nytHeadline = slicedResults[key].abstract;
       var nytImg = slicedResults[key].multimedia[4].url; 
       var nytLink =  slicedResults[key].url;
+      var html = '';
+      html += '<a href="'
+      html += nytLink
+      html += '" target="_blank" class="article"><p class="headline">'
+      html += nytHeadline
+      html += '</p></a>'
+      html +=
+      html +=
+      html +=
 
-      $('.headline:eq('+key+')').append(nytHeadline);
-      
+      $('.content').append(html);
+
       $('.article:eq('+key+')').css({
         'background':'url("'+nytImg+'")', 'background-size': 'cover',
         'background-position': 'center'});
-
-      $('.aricle-link:eq('+key+')').attr('href', nytLink);
-
       
     })
 
