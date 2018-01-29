@@ -5,6 +5,7 @@
   flex-wrap: wrap;
   align-items: center;
   align-content: center;
+  min-height: 100vh;
   @include tablet{
     flex-direction: row;
   }
@@ -36,4 +37,13 @@
   padding: 10px;
   text-align: left;
   line-height: 1.5rem;
+}
+
+.loader{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  display: none;
 }

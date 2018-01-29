@@ -190,7 +190,8 @@ h1 {
       -ms-flex-align: center;
           align-items: center;
   -ms-flex-line-pack: center;
-      align-content: center; }
+      align-content: center;
+  min-height: 100vh; }
   @media (min-width: 600px) {
     .content {
       -webkit-box-orient: horizontal;
@@ -232,6 +233,14 @@ h1 {
   padding: 10px;
   text-align: left;
   line-height: 1.5rem; }
+
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  display: none; }
 
 footer {
   height: 15vh;

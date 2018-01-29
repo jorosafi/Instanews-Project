@@ -1,14 +1,8 @@
-//this is the JQuery code that Jim used to animate boxes in his example
-// $(".article")
-//   .hide()
-//   .first()
-//   .show("fast", function showNext() {
-//     $(this)
-//       .next(".article")
-//       .show(500, showNext);
-//   });
+
+
 
 $('.topics-dropdown').change(function () {
+  $('.loader').fadeIn('fast').delay(500).fadeOut('fast');
   $('.splash').attr('class', 'container header');
   $('.content').css('display','flex');
 
@@ -26,7 +20,6 @@ $('.topics-dropdown').change(function () {
   })
   
   .done(function (result) {
-
     $('.content').empty();
     $('.article').css('background', 'black');
 
@@ -37,7 +30,7 @@ $('.topics-dropdown').change(function () {
     var slicedResults = filteredResults.slice(0, 12);
     
 
-    $.each(slicedResults, function(key, value){
+    $.each(slicedResults, function(key){
       var nytHeadline = slicedResults[key].abstract;
       var nytImg = slicedResults[key].multimedia[4].url; 
       var nytLink =  slicedResults[key].url;
@@ -47,9 +40,8 @@ $('.topics-dropdown').change(function () {
       html += '" target="_blank" class="article"><p class="headline">'
       html += nytHeadline
       html += '</p></a>'
-      html +=
-      html +=
-      html +=
+
+      console.log(nytImg);
 
       $('.content').append(html);
 
@@ -58,6 +50,17 @@ $('.topics-dropdown').change(function () {
         'background-position': 'center'});
       
     })
+
+
+    //Animation Jim used as example in class. 
+    // $('.article')
+    // .hide()
+    // .first()
+    // .show("fast", function showNext() {
+    //   $(this)
+    //     .next('.article')
+    //     .show('slow', showNext);
+    // });
 
   })
   
