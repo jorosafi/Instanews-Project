@@ -1,10 +1,18 @@
-.splash{
-  height: 85vh;
+%both{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-content: center;
   align-items: center;
+}
+
+.container{
+  transition-duration: 1s;
+}
+
+.splash{
+  @extend %both;
+  height: 85vh;
   img{
     height: 200px;
   }
@@ -31,17 +39,9 @@
   }
 }
 
-.splash-text{
-  padding: 10px 0;
-}
-
 .header{
   min-height: 200px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
+  @extend %both;
   img{
     height: 150px;
     width: auto;
@@ -60,16 +60,7 @@
   }
 }
 
-.topics-form{
-  width: 200px;
-  padding: 20px 0;
-  text-align: center;
-  .topics-dropdown{
-    background: white;
-  }
-  
-}
 
 .header-text{
-  @extend .splash-text
+  padding: 10px 0;
 }

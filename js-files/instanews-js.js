@@ -1,8 +1,19 @@
+// Questions for Jim:
+// 1) animation appears choppy
+// 3) selectric
+// 4) Displaying headlines on hover
+// 5) 
 
 
+$(function() {
+  $('select').selectric();
+});
 
 $('.topics-dropdown').change(function () {
-  $('.loader').fadeIn('fast').delay(500).fadeOut('fast');
+
+  $('.content').empty();
+
+  $('.loader').fadeIn('fast');
   $('.splash').attr('class', 'container header');
   $('.content').css('display','flex');
 
@@ -20,12 +31,12 @@ $('.topics-dropdown').change(function () {
   })
   
   .done(function (result) {
-    $('.content').empty();
-    $('.article').css('background', 'black');
+    
+    // $('.article').css('background', 'black');
 
     var filteredResults = result.results.filter(function(article){
       return article.multimedia.length
-      })
+      });
 
     var slicedResults = filteredResults.slice(0, 12);
     
@@ -48,11 +59,12 @@ $('.topics-dropdown').change(function () {
       $('.article:eq('+key+')').css({
         'background':'url("'+nytImg+'")', 'background-size': 'cover',
         'background-position': 'center'});
-      
-    })
+    });
+
+    
 
 
-    //Animation Jim used as example in class. 
+    // Animation Jim used as example in class. 
     // $('.article')
     // .hide()
     // .first()
@@ -61,13 +73,22 @@ $('.topics-dropdown').change(function () {
     //     .next('.article')
     //     .show('slow', showNext);
     // });
-
   })
-  
+
+
+
   .fail(function (err) {
     throw err;
+  })
+  .always(function(){
+    $('.loader').hide();
   });
 });
+
+// $('.article').hover(function(){
+//   $('.headline').fadeIn(100);
+//   $('.headline').fadeOut(100);
+// });
 
 
 

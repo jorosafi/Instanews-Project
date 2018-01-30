@@ -11,7 +11,17 @@
   }
 }
 
-.article{
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.article {
+  animation: ease-in 1s forwards fadeIn;
   width: 100%;
   height: 400px;
   display: flex;
@@ -32,11 +42,15 @@
 .headline{
   background: rgba(0, 0, 0, 0.6);
   display: block;
+  // visibility: hidden;
   width: 100%;
   text-align: center;
   padding: 10px;
   text-align: left;
   line-height: 1.5rem;
+  // &:hover{
+  //   visibility: visible;
+  // }
 }
 
 .loader{
@@ -46,4 +60,6 @@
   width: 40px;
   height: 40px;
   display: none;
+  z-index: 10;
 }
+
