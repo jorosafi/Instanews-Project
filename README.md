@@ -10,11 +10,11 @@ When the user first enters the website, they are greeted with a minimalist splas
 
 After the user selects a section, a series of JQuery actions are triggered that reduce the size of the header and load the NYT articles corresponding to that section. 
 
-ß![Articles page screenshot](images/articles-screenshot.png)
+![Articles page screenshot](images/articles-screenshot.png)
 
 The header changes size thanks to a change in class. The css file contains two separate css styles for the .splash and .header classes. When the user selects an option in the dropown menu, the class of the header changes to make the layout changes possible. 
 
-After the header is changed to make space for the articles, a loading gif appears while an Ajax function retrieves the article information fromt he NYT API. More information about the NYT API can be found here: https://developer.nytimes.com/ 
+After the header is changed to make space for the articles, a loading gif appears while an Ajax function retrieves the article information from the NYT API. More information about the NYT API can be found here: https://developer.nytimes.com/ 
 
 ![Loading gif screenshot](images/loading-screenshot.png)
 
@@ -22,7 +22,7 @@ The article information is then appended into the content section using a JQuery
 
 This animation took me some time to work out. Originally, I was trying to place the animation on the parent container, but this meant that the animation would only run once. When the user refreshed the articles again by selecting a new NYT section, the animation would not run. Thanks to the help of one of the Red Academy instructors, Jim B., I moved the animation styles to the class controlling the articles so the animation would run every time the articles were refreshed. 
 
-I attempted to stylize the dropdown menu even more using the Selectic JQuery plugin, but I was not able to make the plugin work properly. In the future, I would like to come back to this project and figure out what I was doing wrong the first time around. 
+I attempted to stylize the dropdown menu using the Selectic JQuery plugin, but I was not able to make the plugin work properly. In the future, I would like to come back to this project and figure out what I was doing wrong the first time around. 
 
 
 
