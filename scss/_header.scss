@@ -5,10 +5,7 @@
   align-content: center;
   align-items: center;
 }
-
-.container{
-  transition-duration: 1s;
-}
+// When loaded, the header has a class of "container splash", and when the topics are selected the class changes to "container header". %both applies to both the before and after. 
 
 .splash{
   @extend %both;
@@ -32,10 +29,10 @@
   padding: 20px 0;
   text-align: center;
   .topics-dropdown{
-    background: white;
+    background: lightgrey;
+    border: black;
     width: 150px;
-    height: 25px;
-    border-radius: 10%;
+    height: 30px;
   }
 }
 

@@ -1,94 +1,68 @@
-// Questions for Jim:
-// 1) animation appears choppy
-// 3) selectric
-// 4) Displaying headlines on hover
-// 5) 
 
+$(document).ready(function() {
 
-$(function() {
-  $('select').selectric();
-});
+    //this is the event that triggers the Ajax
+  $('.topics-dropdown').change(function(event) {
+    event.preventDefault();
+    $(".content").empty(); //this empties the content section to load new articles
+    $('.loader').fadeIn("fast"); // this shows the loading giv
+    $('.splash').attr('class', 'container header'); //this changes the class of the header to make it smaller and make room for the articles
+    $('.content').css('display', 'flex'); //this makes the content section appear
 
-$('.topics-dropdown').change(function () {
+    var selection = $('.topics-dropdown').val();
 
-  $('.content').empty();
-
-  $('.loader').fadeIn('fast');
-  $('.splash').attr('class', 'container header');
-  $('.content').css('display','flex');
-
-  var selection = $('.topics-dropdown').val();
-
-  var url = 'https://api.nytimes.com/svc/topstories/v2/' + selection + '.json';
-
-  url += '?' + $.param({
-    'api-key': 'c5099af9412b4a3eb9e35f2c26f944dd'
-  });
-
-  $.ajax({
-    url: url,
-    method: 'GET',
-  })
-  
-  .done(function (result) {
-    
-    // $('.article').css('background', 'black');
-
-    var filteredResults = result.results.filter(function(article){
-      return article.multimedia.length
+    //taken from the NYT API how-to page
+    var url = 'https://api.nytimes.com/svc/topstories/v2/' + selection + '.json';
+    url +=
+      '?' +
+      $.param({
+        'api-key': 'c5099af9412b4a3eb9e35f2c26f944dd'
       });
 
-    var slicedResults = filteredResults.slice(0, 12);
-    
+    $.ajax({
+      url: url,
+      method: 'GET'
+    })
 
-    $.each(slicedResults, function(key){
-      var nytHeadline = slicedResults[key].abstract;
-      var nytImg = slicedResults[key].multimedia[4].url; 
-      var nytLink =  slicedResults[key].url;
-      var html = '';
-      html += '<a href="'
-      html += nytLink
-      html += '" target="_blank" class="article"><p class="headline">'
-      html += nytHeadline
-      html += '</p></a>'
+    .done(function(result) {
 
-      console.log(nytImg);
+        //first filter results without images
+        var filteredResults = result.results.filter(function(article) {
+          return article.multimedia.length;
+        });
+        
+        //then slice results to limit them to 12
+        var slicedResults = filteredResults.slice(0, 12);
 
-      $('.content').append(html);
+        //this each loop appends the NYT articles to the content section
+        $.each(slicedResults, function(key) {
+          var nytHeadline = slicedResults[key].abstract;
+          var nytImg = slicedResults[key].multimedia[4].url;
+          var nytLink = slicedResults[key].url;
+          var html = '';
+          html += '<a href="';
+          html += nytLink;
+          html += '" target="_blank" class="article"><p class="headline">';
+          html += nytHeadline;
+          html += '</p></a>';
 
-      $('.article:eq('+key+')').css({
-        'background':'url("'+nytImg+'")', 'background-size': 'cover',
-        'background-position': 'center'});
-    });
+          $('.content').append(html);
 
-    
+          $('.article:eq(' + key + ')').css({
+            'background': 'url("' + nytImg + '")',
+            'background-size': 'cover',
+            'background-position': 'center'
+          });
+        });
+      })
 
-
-    // Animation Jim used as example in class. 
-    // $('.article')
-    // .hide()
-    // .first()
-    // .show("fast", function showNext() {
-    //   $(this)
-    //     .next('.article')
-    //     .show('slow', showNext);
-    // });
-  })
-
-
-
-  .fail(function (err) {
-    throw err;
-  })
-  .always(function(){
-    $('.loader').hide();
+    .fail(function(err) {
+        throw err;
+      })
+      
+    .always(function() {
+        $('.loader').hide();
+      });
   });
+
 });
-
-// $('.article').hover(function(){
-//   $('.headline').fadeIn(100);
-//   $('.headline').fadeOut(100);
-// });
-
-
-

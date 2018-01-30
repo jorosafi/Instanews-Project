@@ -1,3 +1,4 @@
+//Media queries for tablet and desktop
 @mixin tablet {
   @media (min-width: $tab-width) {
     @content;
