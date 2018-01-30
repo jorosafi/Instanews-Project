@@ -1,4 +1,4 @@
-#InstaNews NYT Article Reader
+# InstaNews NYT Article Reader
 
 This is my second website build as part of the Red Academy's Web Development program!
 
@@ -10,7 +10,7 @@ When the user first enters the website, they are greeted with a minimalist splas
 
 After the user selects a section, a series of JQuery actions are triggered that reduce the size of the header and load the NYT articles corresponding to that section. 
 
-![Articles page screenshot](images/articles-screenshot.png)
+[![Articles page screenshot](images/articles-screenshot.png)]
 
 The header changes size thanks to a change in class. The css file contains two separate css styles for the .splash and .header classes. When the user selects an option in the dropown menu, the class of the header changes to make the layout changes possible. 
 
