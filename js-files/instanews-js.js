@@ -30,7 +30,7 @@ $(document).ready(function() {
         var filteredResults = result.results.filter(function(article) {
           return article.multimedia.length;
         });
-        
+
         //then slice results to limit them to 12
         var slicedResults = filteredResults.slice(0, 12);
 
@@ -59,7 +59,7 @@ $(document).ready(function() {
     .fail(function(err) {
         throw err;
       })
-      
+
     .always(function() {
         $('.loader').hide();
       });
