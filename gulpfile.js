@@ -6,13 +6,24 @@ var gulp = require('gulp') // load gulp first
     sass = require("gulp-sass"),
     autoprefixer = require("gulp-autoprefixer"),
     cssnano = require("gulp-cssnano"),
-    prettyError = require ('gulp-prettyerror');
+    prettyError = require ('gulp-prettyerror'),
+    babel = require("gulp-babel");
+
+//Gulp Babel Task
+var input = 'js-files/*.js';
+var output = 'js-files/transpiled';
+
+  gulp.task('babel', function(){
+    return gulp.src(input)
+      .pipe(babel())
+      .pipe(gulp.dest(output));
+  });
 
 
 //Gulp watch 
 gulp.task('watch', function() { 
   gulp.watch('scss/*.scss', gulp.series('sass'));
-  gulp.watch('js-files/*.js', gulp.series('scripts'));
+  gulp.watch('js-files/*.js', gulp.series('babel','scripts'));
 });
 
 //Sass Task
@@ -34,7 +45,7 @@ gulp.task("sass", function() {
 
 //eslint task
 gulp.task('lint', function(){
-  return gulp.src('js-files/*.js')
+  return gulp.src('js-files/transpiled/*.js')
   .pipe(eslint())
   .pipe(eslint.format())
   .pipe(eslint.failOnError());
@@ -42,7 +53,7 @@ gulp.task('lint', function(){
 
 //Gulp ugligy task
 gulp.task('scripts', gulp.series('lint', function(){
-  return gulp.src('js-files/*.js')
+  return gulp.src('js-files/transpiled/*.js')
   .pipe(uglify()) //call uglify function on files
   .pipe(rename({extname: '.min.js'}))//renaming the new ugly file
   .pipe(gulp.dest('build/js'))

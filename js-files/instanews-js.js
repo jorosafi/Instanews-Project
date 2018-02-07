@@ -9,10 +9,10 @@ $(document).ready(function() {
     $('.splash').attr('class', 'container header'); //this changes the class of the header to make it smaller and make room for the articles
     $('.content').css('display', 'flex'); //this makes the content section appear
 
-    var selection = $('.topics-dropdown').val();
+    let selection = $('.topics-dropdown').val();
 
     //taken from the NYT API how-to page
-    var url = 'https://api.nytimes.com/svc/topstories/v2/' + selection + '.json';
+    let url = `https://api.nytimes.com/svc/topstories/v2/${selection}.json`;
     url +=
       '?' +
       $.param({
@@ -27,40 +27,35 @@ $(document).ready(function() {
     .done(function(result) {
 
         //first filter results without images
-        var filteredResults = result.results.filter(function(article) {
+        const filteredResults = result.results.filter((article) => {
           return article.multimedia.length;
         });
         
         //then slice results to limit them to 12
-        var slicedResults = filteredResults.slice(0, 12);
+        let slicedResults = filteredResults.slice(0, 12);
 
         //this each loop appends the NYT articles to the content section
-        $.each(slicedResults, function(key) {
-          var nytHeadline = slicedResults[key].abstract;
-          var nytImg = slicedResults[key].multimedia[4].url;
-          var nytLink = slicedResults[key].url;
-          var html = '';
-          html += '<a href="';
-          html += nytLink;
-          html += '" target="_blank" class="article"><p class="headline">';
-          html += nytHeadline;
-          html += '</p></a>';
+        $.each(slicedResults, (key) => {
+          let nytHeadline = slicedResults[key].abstract;
+          let nytImg = slicedResults[key].multimedia[4].url;
+          let nytLink = slicedResults[key].url;
+          let html = `<a href="${nytLink}" target="_blank" class="article"><p class="headline">${nytHeadline}</p></a>`
 
           $('.content').append(html);
 
-          $('.article:eq(' + key + ')').css({
-            'background': 'url("' + nytImg + '")',
+          $(`.article:eq(${key})`).css({
+            'background': `url("${nytImg}")`,
             'background-size': 'cover',
             'background-position': 'center'
           });
         });
       })
 
-    .fail(function(err) {
+    .fail((err) => {
         throw err;
       })
       
-    .always(function() {
+    .always(() => {
         $('.loader').hide();
       });
   });
