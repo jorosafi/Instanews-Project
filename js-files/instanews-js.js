@@ -30,7 +30,7 @@ $(document).ready(function() {
         const filteredResults = result.results.filter((article) => {
           return article.multimedia.length;
         });
-        
+
         //then slice results to limit them to 12
         let slicedResults = filteredResults.slice(0, 12);
 
@@ -56,6 +56,8 @@ $(document).ready(function() {
       })
       
     .always(() => {
+
+    .always(function() {
         $('.loader').hide();
       });
   });
