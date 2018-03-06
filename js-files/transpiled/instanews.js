@@ -30,13 +30,15 @@ $(document).ready(function () {
 
       //then slice results to limit them to 12
       var slicedResults = filteredResults.slice(0, 12);
+      console.log(slicedResults);
 
       //this each loop appends the NYT articles to the content section
       $.each(slicedResults, function (key) {
+        var nytTitle = slicedResults[key].title;
         var nytHeadline = slicedResults[key].abstract;
         var nytImg = slicedResults[key].multimedia[4].url;
         var nytLink = slicedResults[key].url;
-        var html = '<a href="' + nytLink + '" target="_blank" class="article"><p class="headline">' + nytHeadline + '</p></a>';
+        var html = '<a href="' + nytLink + '" target="_blank" class="article"><h2 class="title">' + nytTitle + '</h2><p class="headline">' + nytHeadline + '</p></a>';
 
         $('.content').append(html);
 
@@ -45,8 +47,12 @@ $(document).ready(function () {
           'background-size': 'cover',
           'background-position': 'center'
         });
+
+        $('.article:eq(' + key + ')').hover(function () {
+          $('.article:eq(' + key + ') .headline').toggle();
+        });
       });
-    }).fail(function (err) {
+    }).fail(function () {
       // throw err;
       $('.content').append('Sorry, an error occurred. Please try again later.');
     }).always(function () {

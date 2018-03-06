@@ -40,14 +40,35 @@
   }
 }
 
-.headline{
+.title{
   background: rgba(0, 0, 0, 0.6);
   display: block;
   width: 100%;
   text-align: center;
   padding: 10px;
+  text-align: center;
+  line-height: 2rem;
+  font-size: 1.4rem;
+}
+
+@keyframes headlineToggleIn {
+  from {
+    height: 0%;
+  }
+  to {
+    height: 100%;
+  }
+}
+
+.headline{
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
   text-align: left;
   line-height: 1.5rem;
+  animation: headlineToggleIn 1s forwards;
 }
 
 //This is the css for the loading gif. I placed it outside of the .content container, because the content container empties after every Select change. 

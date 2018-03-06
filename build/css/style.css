@@ -223,14 +223,38 @@ body {
     .article {
       width: 25%; } }
 
-.headline {
+.title {
   background: rgba(0, 0, 0, 0.6);
   display: block;
   width: 100%;
   text-align: center;
   padding: 10px;
+  text-align: center;
+  line-height: 2rem;
+  font-size: 1.4rem; }
+
+@-webkit-keyframes headlineToggleIn {
+  from {
+    height: 0%; }
+  to {
+    height: 100%; } }
+
+@keyframes headlineToggleIn {
+  from {
+    height: 0%; }
+  to {
+    height: 100%; } }
+
+.headline {
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
   text-align: left;
-  line-height: 1.5rem; }
+  line-height: 1.5rem;
+  -webkit-animation: headlineToggleIn 1s forwards;
+          animation: headlineToggleIn 1s forwards; }
 
 .loader {
   position: absolute;
@@ -251,3 +275,6 @@ footer {
 
 .copyright {
   color: #c2c2c2; }
+
+.uppercase {
+  text-transform: uppercase; }
