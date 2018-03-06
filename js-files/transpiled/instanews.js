@@ -5,8 +5,8 @@ $(document).ready(function () {
   //this is the event that triggers the Ajax
   $('.topics-dropdown').change(function (event) {
     event.preventDefault();
-    $(".content").empty(); //this empties the content section to load new articles
-    $('.loader').fadeIn("fast"); // this shows the loading giv
+    $('.content').empty(); //this empties the content section to load new articles
+    $('.loader').fadeIn('fast'); // this shows the loading giv
     $('.splash').attr('class', 'container header'); //this changes the class of the header to make it smaller and make room for the articles
     $('.content').css('display', 'flex'); //this makes the content section appear
 
@@ -30,7 +30,6 @@ $(document).ready(function () {
 
       //then slice results to limit them to 12
       var slicedResults = filteredResults.slice(0, 12);
-      console.log(slicedResults);
 
       //this each loop appends the NYT articles to the content section
       $.each(slicedResults, function (key) {
@@ -48,6 +47,7 @@ $(document).ready(function () {
           'background-position': 'center'
         });
 
+        //this is to show the headline on article mouse hover
         $('.article:eq(' + key + ')').hover(function () {
           $('.article:eq(' + key + ') .headline').toggle();
         });
