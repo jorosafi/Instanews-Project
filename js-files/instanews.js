@@ -54,10 +54,8 @@ $(document).ready(function() {
     .fail((err) => {
         throw err;
       })
-      
-    .always(() => {
 
-    .always(function() {
+    .always(() => {
         $('.loader').hide();
       });
   });
