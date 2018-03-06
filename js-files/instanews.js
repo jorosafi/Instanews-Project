@@ -52,7 +52,8 @@ $(document).ready(function() {
       })
 
     .fail((err) => {
-        throw err;
+        // throw err;
+        $('.content').append('Sorry, an error occurred. Please try again later.');
       })
 
     .always(() => {

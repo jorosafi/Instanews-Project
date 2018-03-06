@@ -47,7 +47,8 @@ $(document).ready(function () {
         });
       });
     }).fail(function (err) {
-      throw err;
+      // throw err;
+      $('.content').append('Sorry, an error occurred. Please try again later.');
     }).always(function () {
       $('.loader').hide();
     });
